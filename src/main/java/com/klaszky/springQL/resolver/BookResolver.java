@@ -13,6 +13,6 @@ public class BookResolver implements GraphQLResolver<Book> {
     }
 
     public Author getAuthor(Book book){
-        return authorRepository.findByLastNameAndFirstName(book.getAuthor().getFirstName(), book.getAuthor().getLastName());
+        return authorRepository.findByLastNameAndFirstName(book.getAuthor().getLastName(), book.getAuthor().getFirstName());
     }
 }
