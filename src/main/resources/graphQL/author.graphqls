@@ -5,8 +5,8 @@ type Author {
 }
 
 type Query {
-    finalAllAuthors: [Author]!
-    contAuthors: Long!
+    findAllAuthors: [Author]!
+    countAuthors: Long!
 }
 
 type Mutation {

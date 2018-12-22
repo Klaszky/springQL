@@ -27,7 +27,7 @@ public class Query implements GraphQLQueryResolver {
         return bookRepository.count();
     }
 
-    public long countAuthor() {
+    public long countAuthors() {
         return authorRepository.count();
     }
 }

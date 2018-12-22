@@ -23,6 +23,9 @@ public class Book {
     private Author author;
 
     public Book(String title, String isbn, int pageCount, Author author) {
-
+        this.title = title;
+        this.isbn = isbn;
+        this.pageCount = pageCount;
+        this.author = author;
     }
 }

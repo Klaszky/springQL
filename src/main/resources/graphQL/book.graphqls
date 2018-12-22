@@ -7,12 +7,12 @@ type Book{
 }
 
 extend type Query {
-    finaAllBooks: [Book]!
+    findAllBooks: [Book]!
     countBooks: Long!
 }
 
 extend type Mutation {
-    newBook(title: String!, isbn: String!, pageCount: Int, author: ID!): Book!
+    newBook(title: String!, isbn: String!, pageCount: Int, authorFirstName: String!, authorLastName: String!): Book!
     deleteBook(id: ID!): Boolean
     updateBookPageCount(pageCount: Int!, id: ID!): Book
 }

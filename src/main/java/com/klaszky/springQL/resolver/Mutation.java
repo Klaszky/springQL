@@ -1,15 +1,13 @@
 package com.klaszky.springQL.resolver;
 
-import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import com.coxautodev.graphql.tools.GraphQLMutationResolver;
+import com.klaszky.springQL.exception.BookNotFoundException;
 import com.klaszky.springQL.model.Author;
 import com.klaszky.springQL.model.Book;
 import com.klaszky.springQL.repository.AuthorRepository;
 import com.klaszky.springQL.repository.BookRepository;
-import graphql.GraphQLError;
 
-import java.util.List;
-
-public class Mutation implements GraphQLQueryResolver {
+public class Mutation implements GraphQLMutationResolver {
     private BookRepository bookRepository;
     private AuthorRepository authorRepository;
 
@@ -48,6 +46,9 @@ public class Mutation implements GraphQLQueryResolver {
 
     public Book updateBookPageCount(Integer pageCount, String title){
         Book book = bookRepository.findByTitle(title);
+        if(book == null) {
+            throw new BookNotFoundException("The book to be updated was not found", title);
+        }
         book.setPageCount(pageCount);
 
         bookRepository.save(book);
