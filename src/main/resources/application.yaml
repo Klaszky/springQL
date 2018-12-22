@@ -1,17 +1,2 @@
-graphql:
-  servlet:
-    mapping: /api/graphql
-    enabled: true
-    corsEnabled: true
-
-graphiql:
-  enabled: true
-  mapping: /graphiql
-  endpoint:
-    graphql: /api/graphql
-  cdn:
-    enabled: true
-    version: 0.12.0
-
 server:
   port: 4242
